@@ -184,6 +184,10 @@ DFHANDLER(sorticonmgr)
 	Scr->SortIconMgr = save_sort;
 }
 
+DFHANDLER(swapiconmgr)
+{
+	ReorderIconManagerPosition();
+}
 
 
 /*

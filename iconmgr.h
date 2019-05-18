@@ -71,6 +71,7 @@ void ActiveIconManager(WList *active);
 void NotActiveIconManager(WList *active);
 void DrawIconManagerBorder(WList *tmp, bool fill);
 void SortIconManager(IconMgr *ip);
+void ReorderIconManagerPosition(void);
 void PackIconManager(IconMgr *ip);
 void PackIconManagers(void);
 void dump_iconmanager(IconMgr *mgr, char *label);

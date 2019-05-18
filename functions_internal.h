@@ -37,6 +37,7 @@ DFHANDLER(previconmgr);
 DFHANDLER(showiconmgr);
 DFHANDLER(hideiconmgr);
 DFHANDLER(sorticonmgr);
+DFHANDLER(swapiconmgr);
 
 DFHANDLER(showworkspacemgr);
 DFHANDLER(hideworkspacemgr);
