@@ -105,6 +105,7 @@ DFHANDLER(warptoiconmgr)
 				if(tw->iconmanagerlist &&
 				                tw->iconmanagerlist->iconmgr->twm_win->mapped) {
 					raisewin = tw->iconmanagerlist->iconmgr->twm_win;
+					iconwin = tw->iconmanagerlist->icon;
 					break;
 				}
 			}
