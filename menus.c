@@ -2145,6 +2145,10 @@ int ExecuteFunction(int func, char *action, Window w, TwmWindow *tmp_win,
 	}
 	break;
 
+    case F_SWAPICONMGR:
+	ReorderIconManagerPosition();
+	break;
+
     case F_ALTKEYMAP: {
 	int alt, stat_;
 

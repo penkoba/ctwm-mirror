@@ -885,6 +885,7 @@ static TwmKeyword keytable[] = {
     { "f.squeeze",		FKEYWORD, F_SQUEEZE },
     { "f.startanimation",	FKEYWORD, F_STARTANIMATION },
     { "f.stopanimation",	FKEYWORD, F_STOPANIMATION },
+    { "f.swapiconmgr",		FKEYWORD, F_SWAPICONMGR },
     { "f.title",		FKEYWORD, F_TITLE },
     { "f.toggleoccupation",	FSKEYWORD, F_TOGGLEOCCUPATION },
 #ifdef SOUNDS

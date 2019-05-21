@@ -930,6 +930,68 @@ void SortIconManager(IconMgr *ip)
 /***********************************************************************
  *
  *  Procedure:
+ *	ReorderIconManagerPosition - change current window's icon order
+ *
+ ***********************************************************************
+ */
+void ReorderIconManagerPosition(void)
+{
+    IconMgr *ip;
+    WList *tmp;
+
+    /* don't move if SortIconMgr is set. */
+    if (Scr->SortIconMgr) {
+	return;
+    }
+    if (!Current) {
+	return;
+    }
+    if ((tmp = Current->prev) == NULL) {
+	return;
+    }
+
+    ip = Current->iconmgr;
+
+    /* swap current icon position with prev one */
+    Current->prev = tmp->prev;
+    if (tmp->prev == NULL) {
+	ip->first = Current;
+    } else {
+	tmp->prev->next = Current;
+    }
+    tmp->next = Current->next;
+    if (Current->next == NULL) {
+	ip->last = tmp;
+    } else {
+	Current->next->prev = tmp;
+    }
+    Current->next = tmp;
+    tmp->prev = Current;
+
+    PackIconManager(ip);
+
+    /* this part is delivered from MoveIconManager(). TODO: merge */
+
+    /* raise the frame so the icon manager is visible */
+    if (ip->twm_win->mapped) {
+	RaiseWindow(ip->twm_win);
+	XWarpPointer(dpy, None, Current->icon, 0,0,0,0, 5, 5);
+    } else {
+	if (Current->twm->title_height) {
+	    int tbx = Scr->TBInfo.titlex;
+	    int x = Current->twm->highlightxr;
+	    XWarpPointer (dpy, None, Current->twm->title_w, 0, 0, 0, 0,
+			  tbx + (x - tbx) / 2,
+			  Scr->TitleHeight / 4);
+	} else {
+	    XWarpPointer (dpy, None, Current->twm->w, 0, 0, 0, 0, 5, 5);
+	}
+    }
+}
+
+/***********************************************************************
+ *
+ *  Procedure:
  *	PackIconManager - pack the icon manager windows following
  *		an addition or deletion
  *

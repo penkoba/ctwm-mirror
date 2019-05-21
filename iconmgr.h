@@ -115,6 +115,7 @@ extern void CurrentIconManagerEntry(WList *current);
 extern void ActiveIconManager(WList *active);
 extern void NotActiveIconManager(WList *active);
 extern void DrawIconManagerBorder(WList *tmp, int fill);
+extern void ReorderIconManagerPosition(void);
 extern void SortIconManager(IconMgr *ip);
 extern void PackIconManager(IconMgr *ip);
 
